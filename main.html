@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oz Ring Calculator</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function()
+        {
+            document.querySelector('form').onsubmit = () =>
+            {
+                let first = parseInt(document.querySelector('#first').value);
+                let second = parseInt(document.querySelector('#second').value);
+                let sum = first + second;
+                const p = document.createElement('p');
+                p.innerHTML = sum;
+                document.querySelector('#sum').append(p);
+                return false;
+            }
+            
+            
+        });
+    </script>
+</head>
+<body>
+    <h1>Oz Ring Calculator</h1>
+    <h2>Tool to calculate final damage increase when using Oz ring</h2>
+    <p>Enter your 2 numbers</p>
+    <form>
+        <input type="number" placeholder="First Number" id="first">
+        <input type="number" placeholder="Second" id="second">
+        <input type="submit" value="sum">
+    </form>
+    <p id="sum"></p>
+</body>
+</html>
