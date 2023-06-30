@@ -7,15 +7,12 @@
     <script>
         document.addEventListener('DOMContentLoaded', function()
         {
-            document.querySelector('form').onsubmit = () =>
+            document.querySelector('#calculate').onclick = () =>
             {
                 let first = parseInt(document.querySelector('#first').value);
                 let second = parseInt(document.querySelector('#second').value);
                 let sum = first + second;
-                const p = document.createElement('p');
-                p.innerHTML = sum;
-                document.querySelector('#sum').append(p);
-                return false;
+                document.querySelector('#sum').innerHTML = sum;
             }
             
             
@@ -25,12 +22,14 @@
 <body>
     <h1>Oz Ring Calculator</h1>
     <h2>Tool to calculate final damage increase when using Oz ring</h2>
-    <p>Enter your 2 numbers</p>
-    <form>
-        <input type="number" placeholder="First Number" id="first">
-        <input type="number" placeholder="Second" id="second">
-        <input type="submit" value="sum">
-    </form>
+    <p>Choose your ring you want to calculate</p>
+    <select>
+        <option>ROR4</option>
+        <option>ROR3</option>
+    </select>
+    <input type="number" placeholder="Total ATT%" id="att">
+    <button id="calculate">CALCULATE</button>
+    
     <p id="sum"></p>
 </body>
 </html>
