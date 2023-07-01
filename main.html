@@ -4,32 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oz Ring Calculator</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', function()
-        {
-            document.querySelector('#calculate').onclick = () =>
-            {
-                let first = parseInt(document.querySelector('#first').value);
-                let second = parseInt(document.querySelector('#second').value);
-                let sum = first + second;
-                document.querySelector('#sum').innerHTML = sum;
-            }
-            
-            
-        });
-    </script>
+    
 </head>
 <body>
     <h1>Oz Ring Calculator</h1>
     <h2>Tool to calculate final damage increase when using Oz ring</h2>
-    <p>Choose your ring you want to calculate</p>
-    <select>
-        <option>ROR4</option>
-        <option>ROR3</option>
-    </select>
-    <input type="number" placeholder="Total ATT%" id="att">
+    <div>
+        <div>Ring:
+            <select id="ringname">
+                <option>Ring of Restrain</option>
+                <option>Weapon Jump</option>
+                <option>Critical Damage</option>
+                <option>Totalling Ring</option>
+                <option>Level Jump</option>
+            </select>
+        </div>
+        <div>Ring Level:
+            <select id="ringlevel">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <input type="number" placeholder="Total ATT%" id="att">
+    </div>
+    
     <button id="calculate">CALCULATE</button>
     
-    <p id="sum"></p>
+    <p id="result"></p>
+
+    <script>
+            document.querySelector('#calculate').onclick = () =>
+            {
+                let ringlevel = parseInt(document.querySelector('#ringlevel').value);
+                let att = parseInt(document.querySelector('#att').value);
+                let result = (ringlevel * 25)*100/(ringlevel * 25 + 100);
+                document.querySelector('#result').innerHTML = result;
+            };
+    </script>
+
 </body>
 </html>
