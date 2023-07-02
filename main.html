@@ -30,7 +30,17 @@
     </div>
     <div>
         <p>Total ATT%:
-        <input type="number" placeholder="Total ATT%" id="att">
+        <input type="number" id="att">
+        </p>
+    </div>
+    <div>
+        <p>Total Primary Stat:
+        <input type="number" id="primary">
+        </p>
+    </div>
+    <div>
+        <p>Total Secondary Stat:
+        <input type="number" id="secondary">
         </p>
     </div>
     
@@ -39,13 +49,24 @@
     <p id="result"></p>
 
     <script>
-            document.querySelector('#calculate').onclick = () =>
+            if (document.querySelector('#ringname') = 'Ring of Restrain')
             {
-                let ringlevel = parseInt(document.querySelector('#ringlevel').value);
-                let att = parseInt(document.querySelector('#att').value);
-                let result = (ringlevel * 25)*100/(ringlevel * 25 + 100);
-                document.querySelector('#result').innerHTML = result;
-            };
+                document.querySelector('#calculate').onclick = () =>
+                {
+                    let ringlevel = parseInt(document.querySelector('#ringlevel').value);
+                    let att = parseInt(document.querySelector('#att').value);
+                    let result = (ringlevel * 25)*100/(ringlevel * 25 + 100);
+                    document.querySelector('#result').innerHTML = result;
+                };
+            }
+            else (document.querySelector('#ringname') = 'Weapon Jump')
+            {
+                document.querySelector('#calculate').onclick = () =>
+                {
+                    
+                }
+            }
+            
     </script>
 
 </body>
