@@ -34,6 +34,16 @@
         </p>
     </div>
     <div>
+        <p>Total ATT on Weapon:
+        <input type="number" id="attwep">
+        </p>
+    </div>
+    <div>
+        <p>Total Primary Stat %:
+        <input type="number" id="primaryps">
+        </p>
+    </div>
+    <div>
         <p>Total Primary Stat:
         <input type="number" id="primary">
         </p>
@@ -49,23 +59,36 @@
     <p id="result"></p>
 
     <script>
-            if (document.querySelector('#ringname') = 'Ring of Restrain')
-            {
-                document.querySelector('#calculate').onclick = () =>
-                {
-                    let ringlevel = parseInt(document.querySelector('#ringlevel').value);
-                    let att = parseInt(document.querySelector('#att').value);
-                    let result = (ringlevel * 25)*100/(ringlevel * 25 + 100);
-                    document.querySelector('#result').innerHTML = result;
-                };
+        
+        let ringlevel = parseInt(document.querySelector('#ringlevel').value);
+        
+        let att = parseInt(document.querySelector('#att').value);
+
+        let attwep = parseInt(document.querySelector('#attwep').value);
+
+        let primaryps = parseInt(document.querySelector('#primaryps').value);
+
+        let primary = parseInt(document.querySelector('#primary').value);
+
+        let secondary = parseInt(document.querySelector('#secondary').value);
+       
+        document.querySelector('#calculate').onclick = () => {
+        
+            if (document.querySelector('#ringname').value === 'Ring of Restrain')
+            {    
+                let result = (ringlevel * 25)*100/(ringlevel * 25 + 100);
+                
             }
-            else (document.querySelector('#ringname') = 'Weapon Jump')
+        
+            else (document.querySelector('#ringname').value === 'Weapon Jump')
             {
-                document.querySelector('#calculate').onclick = () =>
-                {
-                    
-                }
+                let result = (attwep * ringlevel * (primaryps + 100) * 4 /100)/((primary * 4) + secondary);
+
             }
+
+            document.querySelector('#result').innerHTML = result;
+        }
+
             
     </script>
 
