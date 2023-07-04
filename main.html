@@ -61,8 +61,8 @@
     
     <button id="calculate">CALCULATE</button>
     
-    <p id="result">Note: For Dual Blade and Shadower, Secondary Stat is both DEX and STR<a id="ringnamer"></a></p>
-    
+    <p id="note">Note: For Dual Blade and Shadower, Secondary Stat is both DEX and STR</p>
+    <p id="result"><a id="nameofring"></a></p>
 
 
     <script>
@@ -71,6 +71,8 @@
         
        
         document.querySelector('#calculate').onclick = () => {
+
+            let ring = document.querySelector('#ringname').value;
 
             let ringlevel = parseInt(document.querySelector('#ringlevel').value);
         
@@ -102,7 +104,7 @@
                 result = (level * (20 + 70 *ringlevel)/100 * (primaryps + 100) *4)/ ((primary * 4) + secondary);
             }
             
-            document.querySelector('#result').innerHTML = result;
+            document.querySelector('#result').innerHTML = `${ring} ${ringlevel} give you ${result}% final damage`;
         }
 
             
