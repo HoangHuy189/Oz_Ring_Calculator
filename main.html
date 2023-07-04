@@ -21,10 +21,10 @@
         </div>
         <div>Ring Level:
             <select id="ringlevel">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
                 <option>4</option>
+                <option>3</option>
+                <option>2</option>
+                <option>1</option>
             </select>
         </div>
     </div>
@@ -53,41 +53,59 @@
         <input type="number" id="secondary">
         </p>
     </div>
+    <div>
+        <p>Character Level:
+        <input type="number" id="level">
+        </p>
+    </div>
     
     <button id="calculate">CALCULATE</button>
     
-    <p id="result"></p>
+    <p id="result">Note: For Dual Blade and Shadower, Secondary Stat is both DEX and STR<a id="ringnamer"></a></p>
+    
+
 
     <script>
         
-        let ringlevel = parseInt(document.querySelector('#ringlevel').value);
         
-        let att = parseInt(document.querySelector('#att').value);
-
-        let attwep = parseInt(document.querySelector('#attwep').value);
-
-        let primaryps = parseInt(document.querySelector('#primaryps').value);
-
-        let primary = parseInt(document.querySelector('#primary').value);
-
-        let secondary = parseInt(document.querySelector('#secondary').value);
+        
        
         document.querySelector('#calculate').onclick = () => {
+
+            let ringlevel = parseInt(document.querySelector('#ringlevel').value);
+        
+            let att = parseInt(document.querySelector('#att').value);
+
+            let attwep = parseInt(document.querySelector('#attwep').value);
+
+            let primaryps = parseInt(document.querySelector('#primaryps').value);
+
+            let primary = parseInt(document.querySelector('#primary').value);
+
+            let secondary = parseInt(document.querySelector('#secondary').value);
+
+            let level = parseInt(document.querySelector('#level').value);
         
             if (document.querySelector('#ringname').value === 'Ring of Restrain')
             {    
-                let result = (ringlevel * 25)*100/(ringlevel * 25 + 100);
+                result = (ringlevel * 25) / (att+100) *100;
                 
             }
         
-            else (document.querySelector('#ringname').value === 'Weapon Jump')
+            else if (document.querySelector('#ringname').value === 'Weapon Jump')
             {
-                let result = (attwep * ringlevel * (primaryps + 100) * 4 /100)/((primary * 4) + secondary);
+                result = (attwep * ringlevel * (primaryps + 100) * 4)/((primary * 4) + secondary);
 
             }
-
+            else if (document.querySelector('#ringname').value === 'Level Jump')
+            {
+                result = (level * (20 + 70 *ringlevel)/100 * (primaryps + 100) *4)/ ((primary * 4) + secondary);
+            }
+            
             document.querySelector('#result').innerHTML = result;
         }
+
+            
 
             
     </script>
