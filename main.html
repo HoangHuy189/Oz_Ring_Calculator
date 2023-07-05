@@ -12,12 +12,15 @@
 </head>
 <body>
     <div class="container text-center">
-        <h1 class="h1">Oz Ring Calculator</h1>
+        <h1 class="h1">OZ RING CALCULATOR</h1>
         <h2 >Tool to calculate final damage increase when using Oz ring</h2>
     </div>
     
-    <div class="container text-center">
-        <div>Ring:
+    <div class="container text-center mt-3">
+        <div>
+            STEP 1 : CHOOSE YOUR RING
+        </div>
+        <div class="mt-3">Ring:
             <select id="ringname">
                 <option>Ring of Restrain</option>
                 <option>Weapon Jump</option>
@@ -35,55 +38,59 @@
             </select>
         </div>
     </div>
-    <div class="container-lg">
-        <div class="row g-3">
-
-        
-            <div class="col-md-3">
+    <div class="container mt-4">
+        <div class="text-center">
+            STEP 2 : ENTER REQUIRED STAT
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-4 col-xl-3 mt-3">
                 <label class="form-label">Total ATT%/M.ATT%</label>
-                <input class="form-control" type="number" id="att" >
+                <input class="form-control" type="number" id="att">
             </div>
-            <div class="col-md-3">
-                <label class="form-label">Total ATT/M.ATT on Weapon</label>
+            <div class="col-md-6 col-lg-4 col-xl-3 mt-3">
+                <label class="form-label">ATT/M.ATT on Main Weapon</label>
                 <input class="form-control" type="number" id="attwep" disabled="">
                 
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-4 col-xl-3 mt-3">
                 <label class="form-label">Total Primary Stat %</label>
                 <input class="form-control" type="number" id="primaryps" disabled="">
                 
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-4 col-xl-3 mt-3">
                 <label class="form-label">Total Primary Stat</label>
                 <input class="form-control" type="number" id="primary" disabled="">
         
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-4 col-xl-3 mt-3">
                 <label class="form-label">Total Secondary Stat</label>
                 <input class="form-control" type="number" id="secondary" disabled="">
                 
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-4 col-xl-3 mt-3">
                 <label class="form-label">Character Level</label>
                 <input class="form-control" type="number" id="level" disabled="">
                 
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-4 col-xl-3 mt-3">
                 <label class="form-label">Critical Damage %</label>
                 <input class="form-control" type="number" id="critdmg" disabled="">
                 
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6 col-lg-4 col-xl-3 mt-3">
                 <label class="form-label">Total Stat</label>
                 <input class="form-control" type="number" id="totalstat" disabled="">
                 
             </div>
         </div>
     </div>
+    <div class="container text-center mt-3">
+        <button id="calculate" class="btn btn-primary btn-lg">CALCULATE</button>
+    </div>
     
-    <button id="calculate" class="btn btn-primary btn-lg">CALCULATE</button>
-    <p id="result"></p>
-    <p id="note">Note: For Dual Blade and Shadower, Secondary Stat is both DEX and STR</p>
+    <div class="container text-center mt-3">
+        <p id="result"></p>
+    </div>
     
 
 
