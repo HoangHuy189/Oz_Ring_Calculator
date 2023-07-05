@@ -12,8 +12,8 @@
 </head>
 <body>
     <div class="container text-center">
-        <h1>Oz Ring Calculator</h1>
-        <h2>Tool to calculate final damage increase when using Oz ring</h2>
+        <h1 class="h1">Oz Ring Calculator</h1>
+        <h2 >Tool to calculate final damage increase when using Oz ring</h2>
     </div>
     
     <div class="container text-center">
@@ -35,51 +35,50 @@
             </select>
         </div>
     </div>
-    <div class="container text-center">
-        <div class="row row-cols-4">
-            <div class="col">
+    <div class="container-lg">
+        <div class="row g-3">
+
+        
+            <div class="col-md-3">
                 <label class="form-label">Total ATT%/M.ATT%</label>
                 <input class="form-control" type="number" id="att" >
             </div>
-            <div class="col">
+            <div class="col-md-3">
                 <label class="form-label">Total ATT/M.ATT on Weapon</label>
                 <input class="form-control" type="number" id="attwep" disabled="">
                 
             </div>
-            <div class="col">
+            <div class="col-md-3">
                 <label class="form-label">Total Primary Stat %</label>
                 <input class="form-control" type="number" id="primaryps" disabled="">
                 
             </div>
-            <div class="col">
+            <div class="col-md-3">
                 <label class="form-label">Total Primary Stat</label>
                 <input class="form-control" type="number" id="primary" disabled="">
         
             </div>
-            <div class="col">
+            <div class="col-md-3">
                 <label class="form-label">Total Secondary Stat</label>
                 <input class="form-control" type="number" id="secondary" disabled="">
                 
             </div>
-            <div class="col">
+            <div class="col-md-3">
                 <label class="form-label">Character Level</label>
                 <input class="form-control" type="number" id="level" disabled="">
                 
             </div>
-            <div class="col">
+            <div class="col-md-3">
                 <label class="form-label">Critical Damage %</label>
                 <input class="form-control" type="number" id="critdmg" disabled="">
                 
             </div>
-            <div class="col">
+            <div class="col-md-3">
                 <label class="form-label">Total Stat</label>
                 <input class="form-control" type="number" id="totalstat" disabled="">
                 
             </div>
         </div>
-        
-        
-        
     </div>
     
     <button id="calculate" class="btn btn-primary btn-lg">CALCULATE</button>
