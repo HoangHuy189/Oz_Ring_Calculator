@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oz Ring Calculator</title>
-    
+    <style>
+        
+    </style>
 </head>
 <body>
     <h1>Oz Ring Calculator</h1>
@@ -35,37 +37,37 @@
     </div>
     <div>
         <p>Total ATT on Weapon:
-        <input type="number" id="attwep">
+        <input type="number" id="attwep" disabled="">
         </p>
     </div>
     <div>
         <p>Total Primary Stat %:
-        <input type="number" id="primaryps">
+        <input type="number" id="primaryps" disabled="">
         </p>
     </div>
     <div>
         <p>Total Primary Stat:
-        <input type="number" id="primary">
+        <input type="number" id="primary" disabled="">
         </p>
     </div>
     <div>
         <p>Total Secondary Stat:
-        <input type="number" id="secondary">
+        <input type="number" id="secondary" disabled="">
         </p>
     </div>
     <div>
         <p>Character Level:
-        <input type="number" id="level">
+        <input type="number" id="level" disabled="">
         </p>
     </div>
     <div>
         <p>Current Critical Damage %:
-        <input type="number" id="critdmg">
+        <input type="number" id="critdmg" disabled="">
         </p>
     </div>
     <div>
         <p>Total Stat:
-        <input type="number" id="totalstat">
+        <input type="number" id="totalstat" disabled="">
         </p>
     </div>
     
@@ -77,13 +79,77 @@
 
     <script>
         
-        var ringname = document.querySelector('#ringname').value;
+        
+
+        document.querySelector('#ringname').onchange = () =>
+        {
+            let ringname = document.querySelector('#ringname').value;
+            if (ringname === 'Ring of Restrain')
+            {   
+                document.querySelector('#att').disabled = false;
+                document.querySelector('#attwep').disabled = true;
+                document.querySelector('#primaryps').disabled = true;
+                document.querySelector('#primary').disabled = true;
+                document.querySelector('#secondary').disabled = true;
+                document.querySelector('#level').disabled = true;
+                document.querySelector('#critdmg').disabled = true;
+                document.querySelector('#totalstat').disabled = true;
+                
+            }
+            else if (ringname === 'Weapon Jump')
+            {
+                document.querySelector('#att').disabled = true;
+                document.querySelector('#attwep').disabled = false;
+                document.querySelector('#primaryps').disabled = false;
+                document.querySelector('#primary').disabled = false;
+                document.querySelector('#secondary').disabled = false;
+                document.querySelector('#level').disabled = true;
+                document.querySelector('#critdmg').disabled = true;
+                document.querySelector('#totalstat').disabled = true;
+            }
+            else if (ringname === 'Level Jump')
+            {
+                document.querySelector('#att').disabled = true;
+                document.querySelector('#attwep').disabled = true;
+                document.querySelector('#primaryps').disabled = false;
+                document.querySelector('#primary').disabled = false;
+                document.querySelector('#secondary').disabled = false;
+                document.querySelector('#level').disabled = false;
+                document.querySelector('#critdmg').disabled = true;
+                document.querySelector('#totalstat').disabled = true;
+            }
+            else if (ringname === 'Critical Damage')
+            {
+                document.querySelectorAll('#att').disabled = true;
+                document.querySelector('#attwep').disabled = true;
+                document.querySelector('#primaryps').disabled = true;
+                document.querySelector('#primary').disabled = true;
+                document.querySelector('#secondary').disabled = true;
+                document.querySelector('#level').disabled = true;
+                document.querySelector('#critdmg').disabled = false;
+                document.querySelector('#totalstat').disabled = true;
+            }
+            else if (ringname === 'Totalling Ring')
+            {
+                document.querySelector('#att').disabled = true;
+                document.querySelector('#attwep').disabled = true;
+                document.querySelector('#primaryps').disabled = false;
+                document.querySelector('#primary').disabled = false;
+                document.querySelector('#secondary').disabled = false;
+                document.querySelector('#level').disabled = true;
+                document.querySelector('#critdmg').disabled = true;
+                document.querySelector('#totalstat').disabled = false;
+            }
+            
+        }
 
         
        
         
        
         document.querySelector('#calculate').onclick = () => {
+
+            let ringname = document.querySelector('#ringname').value;
 
             let ringlevel = parseInt(document.querySelector('#ringlevel').value);
         
@@ -106,7 +172,7 @@
             if (ringname === 'Ring of Restrain')
             {    
                 result = (ringlevel * 25) / (att+100) *100;
-                document.querySelector('#attwep').disabled = true;
+
             }
         
             else if (ringname === 'Weapon Jump')
