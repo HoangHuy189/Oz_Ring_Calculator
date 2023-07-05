@@ -58,21 +58,32 @@
         <input type="number" id="level">
         </p>
     </div>
+    <div>
+        <p>Current Critical Damage %:
+        <input type="number" id="critdmg">
+        </p>
+    </div>
+    <div>
+        <p>Total Stat:
+        <input type="number" id="totalstat">
+        </p>
+    </div>
     
     <button id="calculate">CALCULATE</button>
     
     <p id="note">Note: For Dual Blade and Shadower, Secondary Stat is both DEX and STR</p>
-    <p id="result"><a id="nameofring"></a></p>
+    <p id="result"></p>
 
 
     <script>
         
+        var ringname = document.querySelector('#ringname').value;
+
         
+       
         
        
         document.querySelector('#calculate').onclick = () => {
-
-            let ring = document.querySelector('#ringname').value;
 
             let ringlevel = parseInt(document.querySelector('#ringlevel').value);
         
@@ -87,24 +98,46 @@
             let secondary = parseInt(document.querySelector('#secondary').value);
 
             let level = parseInt(document.querySelector('#level').value);
+
+            let critdmg = parseInt(document.querySelector('#critdmg').value);
+            
+            let totalstat = parseInt(document.querySelector('#totalstat').value);
         
-            if (document.querySelector('#ringname').value === 'Ring of Restrain')
+            if (ringname === 'Ring of Restrain')
             {    
                 result = (ringlevel * 25) / (att+100) *100;
-                
+                document.querySelector('#attwep').disabled = true;
             }
         
-            else if (document.querySelector('#ringname').value === 'Weapon Jump')
+            else if (ringname === 'Weapon Jump')
             {
                 result = (attwep * ringlevel * (primaryps + 100) * 4)/((primary * 4) + secondary);
 
             }
-            else if (document.querySelector('#ringname').value === 'Level Jump')
+
+            else if (ringname === 'Level Jump')
             {
                 result = (level * (20 + 70 *ringlevel)/100 * (primaryps + 100) *4)/ ((primary * 4) + secondary);
             }
+
+            else if (ringname === 'Critical Damage')
+            {
+                result = (ringlevel * 7) / (100 + critdmg) * 100;
+            }
             
-            document.querySelector('#result').innerHTML = `${ring} ${ringlevel} give you ${result}% final damage`;
+            else if (ringname === 'Totalling Ring')
+            {
+                if (ringlevel == '1' || ringlevel == '2')
+                {
+                    result = (totalstat /100 * (primaryps +100) *4)/((primary * 4) + secondary);
+                }
+                else if (ringlevel == '3' || ringlevel == '4')
+                {
+                    result = (totalstat /100 *2 * (primaryps +100) *4 )/((primary * 4) + secondary);
+                }
+            }
+
+            document.querySelector('#result').innerHTML = `${ringname} ${ringlevel} give you ${result}% final damage`;
         }
 
             
