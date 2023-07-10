@@ -127,3 +127,21 @@ document.querySelector('#calculate').onclick = () => {
 //enable tooltip
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+//save value when reload
+document.getElementById('att').value = getSavedValue('att');
+function saveValue(e)
+{
+    var id = e.id;
+    var val = e.value;
+    localStorage.setItem(id,val);
+}
+
+function getSavedValue(v)
+{
+    if(!localStorage.getItem(v))
+    {
+        return "";
+    }
+    return localStorage.getItem(v);
+}
