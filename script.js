@@ -130,6 +130,13 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 
 //save value when reload
 document.getElementById('att').value = getSavedValue('att');
+document.getElementById('attwep').value = getSavedValue('attwep');
+document.getElementById('primaryps').value = getSavedValue('primaryps');
+document.getElementById('primary').value = getSavedValue('primary');
+document.getElementById('secondary').value = getSavedValue('secondary');
+document.getElementById('level').value = getSavedValue('level');
+document.getElementById('critdmg').value = getSavedValue('critdmg');
+document.getElementById('totalstat').value = getSavedValue('totalstat');
 function saveValue(e)
 {
     var id = e.id;
