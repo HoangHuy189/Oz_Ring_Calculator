@@ -72,7 +72,7 @@ document.querySelector('#calculate').onclick = () => {
     let ringlevel = parseInt(document.querySelector('#ringlevel').value);
 
     let att = parseInt(document.querySelector('#att').value);
-
+    
     let attwep = parseInt(document.querySelector('#attwep').value);
 
     let primaryps = parseInt(document.querySelector('#primaryps').value);
@@ -120,8 +120,21 @@ document.querySelector('#calculate').onclick = () => {
             result = (totalstat /100 *2 * (primaryps +100) *4 )/((primary * 4) + secondary);
         }
     }
-    result = parseFloat(result).toFixed(2);
-    document.querySelector('#result').innerHTML = `${ringname} ${ringlevel} give you ${result}% final damage`;
+    
+    
+    if (!result || result === Infinity)
+    {
+        document.querySelector('#result').innerHTML = "PLEASE PROVIDE ENOUGH REQUIRED STAT" ;
+    }
+    else
+    {
+        result = parseFloat(result).toFixed(2);
+        document.querySelector('#result').innerHTML = `${ringname} ${ringlevel} give you ${result}% final damage`;
+    }
+    
+    
+    console.log(result);
+    console.log(document.querySelector('#att').value);
 }
 
 //enable tooltip
