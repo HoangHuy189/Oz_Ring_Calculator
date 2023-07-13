@@ -131,10 +131,6 @@ document.querySelector('#calculate').onclick = () => {
         result = parseFloat(result).toFixed(2);
         document.querySelector('#result').innerHTML = `${ringname} ${ringlevel} give you ${result}% final damage`;
     }
-    
-    
-    console.log(result);
-    console.log(document.querySelector('#att').value);
 }
 
 //enable tooltip
