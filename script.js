@@ -1,4 +1,4 @@
-//disable unused input
+//disable unuse input
 document.querySelector('#ringname').onchange = () =>
 {
     let ringname = document.querySelector('#ringname').value;
@@ -161,3 +161,11 @@ function getSavedValue(v)
     }
     return localStorage.getItem(v);
 }
+
+//show modal for the note
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
